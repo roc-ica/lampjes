@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inverter Simulatie (NOT-poort)</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .circuit {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .switch-container, .lamp-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wire-vert {
+      width: 4px;
+      height: 20px;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Simulatie: Inverter (NOT-poort)</h2>
+<p>Deze simulatie toont een <strong>inverter</strong> en keert het resultaat om.<br>De lamp gaat aan als de schakelaar uit staat, en uit als de schakelaar aan staat.</p>
+
+<div class="circuit">
+  <div>
+    <img src="images/battery.png" class="battery" alt="Batterij">
+  </div>
+
+  <div class="switch-container rotate90">
+    <div class="wire-vert"></div>
+    <img id="switch1" src="images/switch_off.png" class="switch rotate270" onclick="toggleSwitch()" alt="Schakelaar">
+    <div class="wire-vert"></div>
+  </div>
+
+  <div class="lamp-container">
+    <img id="lamp" src="images/lamp_on.png" class="lamp" alt="Lamp">
+
+  </div>
+</div>
+
+<p id="status">De lamp is uit (schakelaar staat aan)</p>
+<script>
+  let switchState = false; // false = uit
+
+  function toggleSwitch() {
+    switchState = !switchState;
+    let img = document.getElementById("switch1");
+    img.src = switchState ? "images/switch_on.png" : "images/switch_off.png";
+    checkLamp();
+  }
+
+  function checkLamp() {
+    let lamp = document.getElementById("lamp");
+    let status = document.getElementById("status");
+
+    if (!switchState) {
+      lamp.src = "images/lamp_on.png";
+      status.innerHTML = "De lamp is aan (inverter is actief)";
+    } else {
+      lamp.src = "images/lamp_off.png";
+      status.innerHTML = "De lamp is uit (schakelaar staat aan)";
+    }
+  }
+</script>
+
+</body>
+</html>

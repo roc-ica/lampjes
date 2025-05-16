@@ -1,0 +1,81 @@
+body {
+    text-align: center;
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+
+.battery {
+    width: 60px;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.rotate270 {
+    transform: rotate(270deg);
+}
+
+.circuit {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.switch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parallel {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.wire-vert {
+    width: 4px;
+    height: 60px;
+    background-color: #444;
+}
+
+.switch {
+    width: 60px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.wire-horiz {
+    width: 100%;
+    height: 4px;
+    background-color: #444;
+    margin: 20px auto;
+}
+
+.wire-horiz .wire-vert {
+    position: relative;
+    left: 50%;
+    height: 25px;
+    background-color: #444;
+}
+
+.lamp {
+    width: 80px;
+    margin-top: 10px;
+}
+
+.lamp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#status {
+    margin-top: 20px;
+    text-align: center;
+}

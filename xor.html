@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lamp en Schakelaars met een XOR</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .circuit {
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Simulatie: Schakelaars in een XOR (Exlusive OR)</h2>
+<p>Bij een XOR schakeling is de uitgang hoog als het aantal hoge ingangen <strong>oneven</strong> is</p>
+
+<div class="circuit">
+    <div>
+        <img src="images/battery.png" class="battery" alt="Batterij">
+    </div>
+    <div class="wire-horiz rotate180">
+        <div class="wire-vert"></div>
+    </div>
+    <div class="parallel">
+        <div class="switch-container">
+            <div class="wire-vert"></div>
+            <img id="switch1" src="images/switch_off.png" class="switch" onclick="toggleSwitch(1)" alt="Switch 1">
+            <div class="wire-vert"></div>
+        </div>
+        <div class="switch-container">
+            <div class="wire-vert"></div>
+            <img id="switch2" src="images/switch_off.png" class="switch" onclick="toggleSwitch(2)" alt="Switch 2">
+            <div class="wire-vert"></div>
+        </div>
+        <div class="switch-container">
+            <div class="wire-vert"></div>
+            <img id="switch3" src="images/switch_off.png" class="switch" onclick="toggleSwitch(3)" alt="Switch 3">
+            <div class="wire-vert"></div>
+        </div>
+        <div class="switch-container">
+            <div class="wire-vert"></div>
+            <img id="switch4" src="images/switch_off.png" class="switch" onclick="toggleSwitch(4)" alt="Switch 4">
+            <div class="wire-vert"></div>
+        </div>
+    </div>
+
+
+    <div class="wire-horiz">
+        <div class="wire-vert"></div>
+    </div>
+
+    <div class="lamp-container">
+        <img id="lamp" src="images/lamp_off.png" class="lamp" alt="Lamp">
+    </div>
+</div>
+
+
+
+<p id="status">De lamp is uit</p>
+
+<script>
+    let switches = {
+        1: false,
+        2: false,
+        3: false,
+        4: false
+    };
+
+    function toggleSwitch(nr) {
+        switches[nr] = !switches[nr];
+        const img = document.getElementById("switch" + nr);
+        img.src = switches[nr] ? "images/switch_on.png" : "images/switch_off.png";
+        checkLamp();
+    }
+
+    function checkLamp() {
+        const lamp = document.getElementById("lamp");
+        const status = document.getElementById("status");
+
+        // Tel het aantal ingeschakelde schakelaars (state === true)
+        const onCount = Object.values(switches).filter(function(state) {
+            return state === true;
+        }).length;
+
+        // XOR-simulatie: lamp aan bij oneven aantal aan-schakelaars
+        if (onCount % 2 === 1) {
+            lamp.src = "images/lamp_on.png";
+            status.innerText = "De lamp is aan";
+        } else {
+            lamp.src = "images/lamp_off.png";
+            status.innerText = "De lamp is uit";
+        }
+    }
+
+</script>
+
+</body>
+
+</html>
