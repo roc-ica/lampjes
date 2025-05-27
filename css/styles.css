@@ -38,6 +38,12 @@ body {
     align-items: center;
 }
 
+.serie {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .wire-vert {
     width: 4px;
     height: 60px;
@@ -78,4 +84,11 @@ body {
 #status {
     margin-top: 20px;
     text-align: center;
+}
+
+.info {
+    width: 50%;
+    text-align: left;
+    font-size: 14px;
+    color: #666;
 }
