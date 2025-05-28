@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Lamp en Schakelaars in Serie</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
     .circuit {
       flex-direction: row;
@@ -23,28 +23,28 @@
 <h2>Simulatie: Schakelaars in Serie</h2>
 <div class="circuit">
   <div>
-    <img src="../images/battery.png" class="battery" alt="Batterij">
+    <img src="images/battery.png" class="battery" alt="Batterij">
   </div>
   <div class="serie">
     <div class="switch-container rotate90">
       <div class="wire-vert"></div>
-      <img id="switch1" src="../images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(1)" alt="Switch 1">
+      <img id="switch1" src="images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(1)" alt="Switch 1">
       <div class="wire-vert"></div>
     </div>
     <div class="switch-container rotate90">
       <div class="wire-vert"></div>
-      <img id="switch2" src="../images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(2)" alt="Switch 2">
+      <img id="switch2" src="images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(2)" alt="Switch 2">
       <div class="wire-vert"></div>
     </div>
     <div class="switch-container rotate90">
       <div class="wire-vert"></div>
-      <img id="switch3" src="../images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(3)" alt="Switch 3">
+      <img id="switch3" src="images/switch_off.png" class="switch rotate270" onclick="toggleSwitch(3)" alt="Switch 3">
       <div class="wire-vert"></div>
     </div>
   </div>
 
   <div class="lamp-container">
-    <img id="lamp" src="../images/lamp_off.png" class="lamp" alt="Lamp">
+    <img id="lamp" src="images/lamp_off.png" class="lamp" alt="Lamp">
   </div>
 </div>
 
@@ -79,7 +79,7 @@
     function toggleSwitch(nr) {
       switches[nr] = !switches[nr];
       let img = document.getElementById("switch" + nr);
-      img.src = switches[nr] ? "../images/switch_on.png" : "../images/switch_off.png";
+      img.src = switches[nr] ? "images/switch_on.png" : "images/switch_off.png";
       checkLamp();
     }
 
@@ -88,10 +88,10 @@
       let status = document.getElementById("status");
 
       if (switches[1] && switches[2] && switches[3]) {
-        lamp.src = "../images/lamp_on.png";
+        lamp.src = "images/lamp_on.png";
         status.innerText = "De lamp is aan";
       } else {
-        lamp.src = "../images/lamp_off.png";
+        lamp.src = "images/lamp_off.png";
         status.innerText = "De lamp is uit";
       }
     }

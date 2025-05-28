@@ -49,25 +49,31 @@
     </div>
 
     <div class="lamp-container">
-      <img id="lamp" src="images/lamp_off.png" class="lamp" alt="Lamp">
+      <p>Er staan <span id="aantal_switches_on">...</span> schakelaars <strong>aan</strong></p>
+      <div>
+        <img id="lamp" src="images/lamp_off.png" class="lamp" alt="Lamp">
+        <p id="status">De lamp is uit</p>
+      </div>
+      <p>Er staan <span id="aantal_switches_off">...</span> schakelaars <strong>uit</strong></p>
     </div>
+
+
   </div>
 
 
-  <p id="status">De lamp is uit</p>
+
 
   <section class="info">
-    <h1>informatie</h1>
+    <h1>Informatie</h1>
     <p>
-      Je ziet hier een batterij, drie schakelaars en een lamp. De schakelaars zijn <i>parallel</i> geschakeld. Bij een parallel schakeling wordt gebruik gemaakt van een logische <i>"of"</i> operator. De lamp gaat aan gaan zodra <strong>of</strong> schakelaar 1 <strong>of</strong> schakelaar 2 <strong>of</strong> schakelaar 3 aan staat.<br>
+      Zoals je nu weet, in een parallel schakeling kan de lamp aan als <strong>minstens één</strong> schakelaar aan staat. Maar stel je wilt de status van de schakelaars tellen, hoeveel staan er aan en hoeveel staan er uit?</p>
+      <h1>Opdracht: Tel status van de schakelaars</h1>
+      <p>Zet de aantallen op de drie puntjes bij de juiste status.</p>
     </p>
-    <h1>opdracht</h1>
-    <p>Kun je de code zo aanpassen dat dit gaat werken als een parallel schakeling en de lamp dus gaat branden als één van de schakelaars (of allemaal) aan wordt gezet?</p>
-    <h1>tips</h1>
+    <h1>Tips</h1>
     <ul>
-      <li>De meeste code is reeds aanwezig, er mist nog een klein detail, zoek in het deel tussen de &lt;script&gt; tags om de aanpassing te maken.</li>
-      <li>Je zult een aanpassing moeten maken in de <i>checkLamp()</i> functie, wellicht heb je een if ... else constructie nodig?</li>
-      <li>In veel programmeertalen gebruik je een operator om een logische "of" uit te voeren, meestal ziet deze operator eruit als een || teken (twee rechtopstaande <i>streepjes</i> boven de enter-toets).</li>
+      <li>Maak extra (globale) variabelen om de waarden te bewaren, zowel voor het aantal schakelaars dat "aan" staat en voor het aantal dat "uit" staat. Deze waarden kun je gebruiken om op de drie puntjes in te vullen</li>
+      <li>Je kunt het beste de toggleSwitch() functie iets uitbreiden..</li>
     </ul>
   </section>
 
@@ -87,17 +93,17 @@
       const img = document.getElementById("switch" + nr);
       img.src = switches[nr] ? "images/switch_on.png" : "images/switch_off.png";
       checkLamp();
+
     }
 
     function checkLamp() {
       const lamp = document.getElementById("lamp");
       const status = document.getElementById("status");
 
-      {
+      if (switches[1] || switches[2] || switches[3]) {
         lamp.src = "images/lamp_on.png";
         status.innerText = "De lamp is aan";
-      }
-      {
+      } else {
         lamp.src = "images/lamp_off.png";
         status.innerText = "De lamp is uit";
       }
