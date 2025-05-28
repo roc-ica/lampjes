@@ -48,7 +48,7 @@
   </div>
 </div>
 
-<button>Reset Schakelaars</button>
+<button class="emergency-button">Reset Schakelaars</button>
 
 <p id="status">De lamp is uit</p>
 
@@ -79,7 +79,7 @@
     function toggleSwitch(nr) {
       switches[nr] = !switches[nr];
       let img = document.getElementById("switch" + nr);
-      img.src = switches[nr] ? "/images/switch_on.png" : "/images/switch_off.png";
+      img.src = switches[nr] ? "../images/switch_on.png" : "../images/switch_off.png";
       checkLamp();
     }
 
@@ -88,10 +88,10 @@
       let status = document.getElementById("status");
 
       if (switches[1] && switches[2] && switches[3]) {
-        lamp.src = "/images/lamp_on.png";
+        lamp.src = "../images/lamp_on.png";
         status.innerText = "De lamp is aan";
       } else {
-        lamp.src = "/images/lamp_off.png";
+        lamp.src = "../images/lamp_off.png";
         status.innerText = "De lamp is uit";
       }
     }

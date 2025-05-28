@@ -49,15 +49,21 @@
 </div>
 
 <p id="status">De lamp is uit</p>
-<hr>
+
 
 <section class="info">
+  <h1>informatie</h1>
+    <p>
+    Je ziet hier een batterij, drie schakelaars en een lamp. De schakelaars zijn in <i>serie</i> geschakeld. Bij een serie schakeling wordt gebruik gemaakt van een logische <i>"en"</i> operator. De lampen kunnen alleen aan gaan als <strong>en</strong> schakelaar 1 <strong>en</strong> schakelaar 2 <strong>en</strong> schakelaar 3 aan staan.<br>
+    </p>
   <h1>opdracht</h1>
-  <p>
-    Je ziet hier drie schakelaars die in serie staan. De lamp gaat alleen aan als alle drie de schakelaars aan staan.<br>
-    Kun je de code zo aanpassen dat de lamp aan gaat als alle drie de schakelaars aan staan?<br>
-  </p>
-
+    <p>Kun je de code zo aanpassen dat de lamp aan gaat als alle drie de schakelaars aan staan?</p>
+  <h1>tips</h1>
+  <ul>
+    <li>De meeste code is reeds aanwezig, er mist nog een klein detail, zoek in het deel tussen de &lt;script&gt; tags om de aanpassing te maken.</li>
+    <li>Je zult een aanpassing moeten maken in de checkLamp() functie, wellicht heb je een if ... else constructie nodig?</li>
+    <li>In veel programmeertalen gebruik je een operator om een logische "en" uit te voeren, meestal ziet deze operator eruit als een &amp; teken (enkel of dubbel uitgevoerd).</li>
+  </ul>
 </section>
 
   <script>
@@ -70,13 +76,14 @@
     function toggleSwitch(nr) {
       switches[nr] = !switches[nr];
       let img = document.getElementById("switch" + nr);
-      img.src = switches[nr] ? "/images/switch_on.png" : "/images/switch_off.png";
+      img.src = switches[nr] ? "../images/switch_on.png" : "../images/switch_off.png";
       checkLamp();
     }
 
     function checkLamp() {
       let lamp = document.getElementById("lamp");
       let status = document.getElementById("status");
+
 
       {
         lamp.src = "/images/lamp_on.png";
